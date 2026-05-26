@@ -5,389 +5,193 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>市政微型 AI 應用提案報告：低成本與高效能的雙軌轉型</title>
     <style>
-        /* CSS 變數定義，方便未來一鍵更換市府主視覺色彩 */
         :root {
-            --primary-color: #0056b3;
-            --secondary-color: #e6f0fa;
-            --accent-color: #e67e22;
-            --text-dark: #2c3e50;
-            --text-muted: #5a6c7d;
-            --bg-light: #f8f9fa;
-            --border-radius: 8px;
-            --shadow: 0 4px 6px rgba(0,0,0,0.05);
-            --transition: all 0.3s ease;
+            --primary-color: #004098;
+            --secondary-color: #eef4fb;
+            --accent-color: #1597e5;
+            --text-dark: #1a2b3c;
+            --text-muted: #54667a;
+            --bg-light: #f4f7fa;
+            --border-radius: 12px;
+            --shadow: 0 10px 30px rgba(0,0,0,0.08);
         }
 
-        /* 基礎全域樣式 */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
+        * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Microsoft JhengHei", sans-serif;
-            line-height: 1.7;
+            font-family: -apple-system, "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+            line-height: 1.8;
             color: var(--text-dark);
             background-color: var(--bg-light);
-            padding: 0;
         }
 
-        /* 頂部橫幅 */
         header {
-            background: linear-gradient(135deg, var(--primary-color), #003673);
+            background: linear-gradient(135deg, #002b5b 0%, #004098 100%);
             color: white;
-            padding: 3rem 1.5rem;
+            padding: 4rem 1.5rem;
             text-align: center;
         }
 
-        .header-container {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        header h1 {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            letter-spacing: 0.5px;
-        }
-
-        header p {
-            font-size: 1.1rem;
-            opacity: 0.9;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        /* 主內文區塊 */
-        main {
-            max-width: 1000px;
-            margin: 2rem auto;
-            padding: 0 1.5rem;
-        }
-
-        /* 核心目標區塊 */
-        .core-strategy {
-            background-color: white;
-            border-left: 5px solid var(--accent-color);
-            padding: 1.5rem;
+        .container { max-width: 1050px; margin: 0 auto; padding: 0 1.5rem; }
+        .core-goal {
+            background: white;
+            padding: 2.5rem;
             border-radius: var(--border-radius);
             box-shadow: var(--shadow);
-            margin-bottom: 3rem;
+            margin: -2rem auto 3rem;
+            border-top: 6px solid var(--accent-color);
         }
 
-        .core-strategy h2 {
-            font-size: 1.3rem;
-            color: var(--accent-color);
-            margin-bottom: 0.5rem;
-        }
-
-        /* 分類大標 */
         .section-title {
-            font-size: 1.6rem;
+            font-size: 1.8rem;
             color: var(--primary-color);
-            margin: 2.5rem 0 1.5rem 0;
+            margin: 4rem 0 2rem;
+            display: flex;
+            align-items: center;
+            border-bottom: 2px solid #d0dae5;
             padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--secondary-color);
-            display: flex;
-            align-items: center;
         }
 
-        /* 卡片式格狀佈局 (RWD 核心) */
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr); /* 電腦端預設雙欄 */
-            gap: 1.5rem;
-        }
+        .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
 
-        /* 單一提案卡片 */
-        .proposal-card {
-            background-color: white;
+        .card {
+            background: white;
+            padding: 2rem;
             border-radius: var(--border-radius);
-            padding: 1.5rem;
             box-shadow: var(--shadow);
-            border: 1px solid rgba(0,0,0,0.03);
-            transition: var(--transition);
-        }
-
-        .proposal-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 15px rgba(0,0,0,0.08);
-        }
-
-        .proposal-card h3 {
-            font-size: 1.15rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
+            transition: transform 0.3s ease;
             display: flex;
-            align-items: flex-start;
+            flex-direction: column;
         }
 
-        .proposal-card h3 .number {
-            background-color: var(--secondary-color);
-            color: var(--primary-color);
-            border-radius: 50%;
-            width: 26px;
-            height: 26px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.85rem;
-            margin-right: 0.6rem;
-            flex-shrink: 0;
-            font-weight: bold;
-        }
+        .card:hover { transform: translateY(-5px); }
+        .card h3 { color: var(--primary-color); margin-bottom: 1.2rem; font-size: 1.25rem; display: flex; align-items: center; }
+        .card h3 .num { background: var(--secondary-color); width: 30px; height: 30px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; margin-right: 0.8rem; font-size: 0.9rem; }
 
-        /* 概念與價值欄位編排 */
-        .field {
-            margin-bottom: 0.8rem;
-        }
+        .tag { background: #e1f5fe; color: #01579b; font-size: 0.75rem; padding: 2px 8px; border-radius: 4px; margin-left: 8px; font-weight: normal; }
 
-        .field:last-child {
-            margin-bottom: 0;
-        }
+        .label { font-weight: bold; font-size: 0.9rem; color: #7f8c8d; text-transform: uppercase; margin-top: 1rem; display: block; }
+        .content { font-size: 1rem; color: var(--text-dark); margin-top: 0.3rem; }
 
-        .field-label {
-            font-weight: bold;
-            font-size: 0.9rem;
-            color: var(--text-dark);
-            display: block;
-            margin-bottom: 0.2rem;
-        }
+        /* 特殊流程圖樣式 */
+        .flow-box { background: #f8f9fa; border: 1px dashed #cbd5e0; padding: 1rem; border-radius: 8px; margin-top: 1rem; }
+        .flow-old { color: #e53e3e; font-size: 0.9rem; margin-bottom: 0.5rem; }
+        .flow-new { color: #38a169; font-size: 0.95rem; font-weight: bold; }
 
-        .field-content {
-            font-size: 0.95rem;
-            color: var(--text-muted);
-            text-align: justify;
-        }
+        footer { text-align: center; padding: 4rem 0; color: var(--text-muted); font-size: 0.9rem; }
 
-        /* 突出標籤 */
-        .badge {
-            background-color: #fff3cd;
-            color: #856404;
-            font-size: 0.75rem;
-            padding: 0.1rem 0.4rem;
-            border-radius: 4px;
-            margin-left: 0.5rem;
-            font-weight: normal;
-        }
-
-        /* 頁尾 */
-        footer {
-            text-align: center;
-            padding: 3rem 1.5rem;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            border-top: 1px solid var(--secondary-color);
-            margin-top: 4rem;
-        }
-
-        /* ==========================================================================
-           RWD 媒體查詢 (Media Queries)
-           ========================================================================== */
-        
-        /* 當螢幕寬度小於 850px 時（如平板、大螢幕手機），自動切換為單欄佈局 */
         @media (max-width: 850px) {
-            .grid-container {
-                grid-template-columns: 1fr;
-            }
-            
-            header h1 {
-                font-size: 1.6rem;
-            }
-            
-            .section-title {
-                font-size: 1.4rem;
-            }
-        }
-
-        /* 當螢幕寬度小於 480px 時（極端小手機優化） */
-        @media (max-width: 480px) {
-            header {
-                padding: 2rem 1rem;
-            }
-            header h1 {
-                font-size: 1.4rem;
-            }
-            main {
-                margin: 1rem auto;
-                padding: 0 1rem;
-            }
-            .proposal-card {
-                padding: 1.2rem;
-            }
+            .grid { grid-template-columns: 1fr; }
+            header h1 { font-size: 1.8rem; }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="header-container">
-            <h1>市政微型 AI 應用提案報告</h1>
-            <p>低成本與高效能的雙軌轉型策略</p>
+<header>
+    <div class="container">
+        <h1 style="margin-bottom: 0.5rem;">市政微型 AI 應用提案報告</h1>
+        <p style="opacity: 0.8;">2026/05/20 | 智慧施政創新方案</p>
+    </div>
+</header>
+
+<main class="container">
+    <section class="core-goal">
+        <h2 style="color: var(--primary-color); margin-bottom: 1rem;">核心策略目標</h2>
+        <p>避開大型預算之重型工程，以「低成本、高施政感、微調現有基礎」為核心，運用 Gemini 代理人與 RAG 技術，針對行政摩擦力與市民接觸體驗進行雙軌優化。透過公版工具與局部微調，實現行政自動化並弭平市民資訊隔閡。</p>
+    </section>
+
+    <h2 class="section-title">第一部分：內部行政優化（降低行政摩擦力）</h2>
+    <div class="grid">
+        <div class="card" style="grid-column: span 2;">
+            <h3><span class="num">1</span>民眾陳情與意見回覆流程<span class="tag">自動分類與草擬</span></h3>
+            <div class="flow-box">
+                <div class="flow-old"><strong>舊流程：</strong>人工閱讀 → 判斷局處 → 手動查閱舊案 → 撰寫覆函 → 陳核 (效率受人力與經驗限制)。</div>
+                <div class="flow-new"><strong>AI 新流程：</strong>Gemini 自動解析語意進行「自動精準分文」 → AI 同步調閱內部資料庫 (RAG)「自動草擬覆函」 → 承辦人審核微調。</div>
+            </div>
+            <span class="label">💡 優化機制</span>
+            <p class="content">落實「Human-in-the-Loop」機制，AI 負擔 90% 的分類與初步撰寫工作，公務員則保有最終裁決權與法律責任，達成效率與嚴謹度的平衡。</p>
         </div>
-    </header>
 
-    <main>
-        <!-- 提案核心目標 -->
-        <section class="core-strategy">
-            <h2>提案核心目標</h2>
-            <div class="field-content" style="color: var(--text-dark);">
-                避開重型基礎建設與高昂預算（如數位孿生），運用現有成熟的開源 AI、RAG（檢索增強生成）與 API 技術。一方面透過「公版工具、局部微調」釋放內部行政量能，解決基層複製範本、交接斷層的痛點；另一方面從優化既有服務的 UX 與介面切入，以極低成本讓市民對「智慧城市」產生實質有感的施政體驗。
-            </div>
-        </section>
+        <div class="card">
+            <h3><span class="num">2</span>市政圖卡 AI 產生器<span class="tag">整合高雄熊主題</span></h3>
+            <span class="label">💡 概念</span>
+            <p class="content">於內網部署 AI 製圖工具，綁定市府視覺規範與「高雄熊」影像權重訓練。輸入核心文字即可產出高品質、符合品牌形象的宣傳圖。</p>
+            <span class="label">✨ 價值</span>
+            <p class="content">賦予各單位自主宣傳量能，無需專業美編即可維持市府一致的視覺溝通力。</p>
+        </div>
 
-        <!-- 第一部分 -->
-        <section>
-            <h2 class="section-title">第一部分：內部行政優化與賦能（降低行政摩擦力）</h2>
-            <div class="grid-container">
-                
-                <!-- 項目 1 -->
-                <div class="proposal-card">
-                    <h3><span class="number">1</span>內網專屬「市政圖卡 AI 產生器」<span class="badge">整合高雄熊訓練</span></h3>
-                    <div class="field">
-                        <span class="field-label">💡 概念</span>
-                        <p class="field-content">於內網部署 AI 製圖工具（設定限流管控成本），底層綁定市府視覺規範與官方吉祥物「高雄熊（KAOBear）」的影像權重訓練。承辦人輸入核心宣導文字，系統即可自動排版，產出帶有正確高雄熊視覺、且符合公版配色的高品質社群圖卡。</p>
-                    </div>
-                    <div class="field">
-                        <span class="field-label">✨ 價值</span>
-                        <p class="field-content">解決基層單位缺乏專職美編的痛點，在確保視覺一致性與政府形象的前提下，提升市政宣傳的吸睛度。</p>
-                    </div>
-                </div>
+        <div class="card">
+            <h3><span class="num">3</span>採購契約「生成與檢核」助理</h3>
+            <span class="label">💡 概念</span>
+            <p class="content">以 RAG 協助規格化撰寫標案。由資訊單位產出公版工具，再針對各局處業務進行細部訓練，輔助規格書生成並自動執行邏輯檢核。</p>
+            <span class="label">✨ 價值</span>
+            <p class="content">杜絕「複製貼上」舊範本導致的錯誤，大幅提升採購公文撰寫效率並降低流標率。</p>
+        </div>
 
-                <!-- 項目 2 -->
-                <div class="proposal-card">
-                    <h3><span class="number">2</span>政府採購標案智慧助理<span class="badge">RAG 規格生成 + 防呆</span></h3>
-                    <div class="field">
-                        <span class="field-label">💡 概念</span>
-                        <p class="field-content">改變公務員「複製舊範本、盲目貼上再逐字修改」的低效模式。由資訊單位開發公版 RAG 工具，匯入政府採購法、標準規格書，再針對各單位常辦業務（工程、勞務、財物）進行局部微調。系統可引導規格化撰寫，並在送件前自動檢核邏輯衝突。</p>
-                    </div>
-                    <div class="field">
-                        <span class="field-label">✨ 價值</span>
-                        <p class="field-content">透過「公版架構、局部微調」大幅提升採購公文撰寫效率，從源頭降低流標率，並顯著減少主計、法制單位的退件率。</p>
-                    </div>
-                </div>
+        <div class="card">
+            <h3><span class="num">4</span>「公務行政知識庫」AI 業師系統</h3>
+            <span class="label">💡 概念</span>
+            <p class="content">將各局處歷史交接資料與問答 SOP 結構化，打造數位「業師」。</p>
+            <span class="label">✨ 價值</span>
+            <p class="content">解決人員輪調、約聘僱異動造成的「交接斷層」，降低新人入門門檻。 </p>
+        </div>
 
-                <!-- 項目 3 -->
-                <div class="proposal-card">
-                    <h3><span class="number">3</span>「公務行政知識庫」AI 導航與業師系統</h3>
-                    <div class="field">
-                        <span class="field-label">💡 概念</span>
-                        <p class="field-content">將內部封閉知識庫轉化為「AI 線上業師」。全面匯入市府現行行政規則、請款流程、人事表單，並將各業務單位的「歷史交接資料、常見問答（FAQ）」結構化建檔。同仁遇到疑難雜訊時，可直接透過自然語言對話獲取標準作業流程與歷年交接脈絡。</p>
-                    </div>
-                    <div class="field">
-                        <span class="field-label">✨ 價值</span>
-                        <p class="field-content">破除機關因人員頻繁流動造成的「交接斷層」，以數位業師化解新人入門門檻，大幅減少資深同仁被重複詢問的時間成本。</p>
-                    </div>
-                </div>
+        <div class="card">
+            <h3><span class="num">5</span>人行道戰略地圖<span class="tag">衛星影像分析</span></h3>
+            <span class="label">💡 概念</span>
+            <p class="content">利用視覺 AI 分析高解析度衛星圖，精準找出學校、站點周邊的人行道斷點。</p>
+            <span class="label">✨ 價值</span>
+            <p class="content">不需龐大硬體建置，以現有軟體分析達成精準派工、主動治理。</p>
+        </div>
+    </div>
 
-                <!-- 項目 4 -->
-                <div class="proposal-card">
-                    <h3><span class="number">4</span>衛星圖 AI 視覺分析：人行道戰略地圖</h3>
-                    <div class="field">
-                        <span class="field-label">💡 概念</span>
-                        <p class="field-content">運用電腦視覺軟體分析既有高解析度衛星圖，精準找出學校、大眾運輸站點周邊的「實體人行道斷點」或固定障礙物佔用熱區。</p>
-                    </div>
-                    <div class="field">
-                        <span class="field-label">✨ 價值</span>
-                        <p class="field-content">資料來源為公開衛星圖，完全無涉隱私。提供客觀數據輔助市府主動規劃路平或人行道標線工程，不需龐大硬體花費。</p>
-                    </div>
-                </div>
+    <h2 class="section-title">第二部分：市民服務提升（優化有感接觸點）</h2>
+    <div class="grid">
+        <div class="card" style="grid-column: span 2;">
+            <h3><span class="num">6</span>市政公告「白話文轉譯」QR Code 服務</h3>
+            <span class="label">💡 概念</span>
+            <p class="content">於實體及 PDF 公告角落加入專屬 QR Code。市民掃描後會跳轉至 AI 生成的「白話說法、RWD 響應式網頁」。無論手機、平板均能清楚閱覽重點指引。</p>
+            <span class="label">✨ 價值</span>
+            <p class="content">將「官僚文字」轉化為「公民行動」，真正弭平資訊隔閡，優化市民接收市政資訊的體驗。</p>
+        </div>
 
-                <!-- 項目 5 -->
-                <div class="proposal-card">
-                    <h3><span class="number">5</span>市政公開資料（Open Data）自動質檢員</h3>
-                    <div class="field">
-                        <span class="field-label">💡 概念</span>
-                        <p class="field-content">資訊中心或各局處在上傳 Open Data（CSV/JSON）前，透過 AI 驗證腳本自動檢查欄位是否錯位、有無格式亂碼或空值，並給予修正提示。</p>
-                    </div>
-                    <div class="field">
-                        <span class="field-label">✨ 價值</span>
-                        <p class="field-content">確保市府開放資料的基礎品質，避免外部民間開發者或市民下載後因資料錯誤而產生的抱怨與行政往返。</p>
-                    </div>
-                </div>
+        <div class="card">
+            <h3><span class="num">7</span>「高雄智慧停車網」UX 改良專案</h3>
+            <span class="label">💡 概念</span>
+            <p class="content">在現有數據基礎上，優化介面直覺度與數據媒合效率，提供友善的即時停車搜尋介面。</p>
+            <span class="label">✨ 價值</span>
+            <p class="content">無需新硬體投入，僅需微調優化即可提升市民施政有感度，緩解市區車流繞行問題。</p>
+        </div>
 
-            </div>
-        </section>
+        <div class="card">
+            <h3><span class="num">8</span>AI 語音大螢幕與網站導航</h3>
+            <span class="label">💡 概念</span>
+            <p class="content">整合台、客、國語辨識。民眾在區公所或網站「用說的」即能導航申辦流程。</p>
+            <span class="label">✨ 價值</span>
+            <p class="content">打造無摩擦力的智慧門面，讓高齡長者也能輕鬆享受數位服務。</p>
+        </div>
 
-        <!-- 第二部分 -->
-        <section>
-            <h2 class="section-title">第二部分：市民服務與體驗升級（優化有感接觸點）</h2>
-            <div class="grid-container">
+        <div class="card">
+            <h3><span class="num">9</span>場館人流熱區與最佳時段建議</h3>
+            <span class="label">💡 概念</span>
+            <p class="content">分析各市民運動中心歷史數據，主動提示最佳前往時段。</p>
+            <span class="label">✨ 價值</span>
+            <p class="content">實現人流自動分流，讓公共資源使用效率最大化。</p>
+        </div>
 
-                <!-- 項目 6 -->
-                <div class="proposal-card">
-                    <h3><span class="number">6</span>市政公告「RWD 網頁與白話文」QRCode 轉譯器</h3>
-                    <div class="field">
-                        <span class="field-label">💡 概念</span>
-                        <p class="field-content">翻轉傳統將生硬 PDF 公告直接丟上網的做法。在未來的公文與公告（施工、停水等）PDF 角落，系統自動生成一個動態 QRCode。市民掃描後會直接進入一個具備 RWD 響應式、適合手機與平板閱讀的白話說明網頁，提供極簡條列重點與行動指引。</p>
-                    </div>
-                    <div class="field">
-                        <span class="field-label">✨ 價值</span>
-                        <p class="field-content">真正弭平市民與政府間的資訊隔閡，優化跨載具的使用者體驗（UX），從源頭降低市民因看不懂公告而產生的焦慮與投訴。</p>
-                    </div>
-                </div>
+        <div class="card">
+            <h3><span class="num">10</span>流浪動物「個性化配對」系統</h3>
+            <span class="label">💡 概念</span>
+            <p class="content">依動物個性與領養者作息進行科學媒合。</p>
+            <span class="label">✨ 價值</span>
+            <p class="content">提升認養率、降低退養率，展現市府重視生命教育的形象。</p>
+        </div>
+    </div>
+</main>
 
-                <!-- 項目 7 -->
-                <div class="proposal-card">
-                    <h3><span class="number">7</span>市政廳 / 區公所「AI 語音大螢幕與網站多語客服」</h3>
-                    <div class="field">
-                        <span class="field-label">💡 概念</span>
-                        <p class="field-content">將高度在地化的語音辨識與自然語言理解模型（精準支援台語、客語與國語口語）整合至實體服務機台、臨櫃大螢幕及官網。民眾不需在複雜網頁選單迷路，只需「用說的」表達訴求，系統即時理解並以語音與動態螢幕導航申辦資訊。</p>
-                    </div>
-                    <div class="field">
-                        <span class="field-label">✨ 價值</span>
-                        <p class="field-content">極大化發揮 AI 的包容性，徹底弭平高齡長者與數位弱勢族的科技落差，提供即時、親切且無摩擦力的第一線臨櫃門面體驗。</p>
-                    </div>
-                </div>
-
-                <!-- 項目 8 -->
-                <div class="proposal-card">
-                    <h3><span class="number">8</span>「高雄智慧停車網」UX 改良與快速媒合介面</h3>
-                    <div class="field">
-                        <span class="field-label">💡 概念</span>
-                        <p class="field-content">高雄現已有智慧停車柱與路邊開單數據等豐厚基礎，本項目不增加硬體成本，僅透過 AI 數據輕量整合，微調優化平台既有介面。在保障「提示資料有數分鐘時間落差」的預防警語下，提供駕駛人一鍵導航、即時空位預測的流暢 UI/UX 介面。</p>
-                    </div>
-                    <div class="field">
-                        <span class="field-label">✨ 價值</span>
-                        <p class="field-content">活化既有數據資產，以極低成本微調老舊介面，大幅減少市區車流繞行，並直接將智慧城市形象深植於市民的日常通勤中。</p>
-                    </div>
-                </div>
-
-                <!-- 項目 9 -->
-                <div class="proposal-card">
-                    <h3><span class="number">9</span>市民場館「人流熱區與最佳時段」建議</h3>
-                    <div class="field">
-                        <span class="field-label">💡 概念</span>
-                        <p class="field-content">利用各公立場館與運動中心的歷史進出場數據與即時閘門資訊分析擁擠程度，主動在網站或官方 APP 提示市民避開高峰期。</p>
-                    </div>
-                    <div class="field">
-                        <span class="field-label">✨ 價值</span>
-                        <p class="field-content">協助市民有效規劃運動與休閒時間，達成公共設施的人流分流效果，大幅提升市民使用公共空間的舒適度。</p>
-                    </div>
-                </div>
-
-                <!-- 項目 10 -->
-                <div class="proposal-card">
-                    <h3><span class="number">10</span>流浪動物認養「個性配對」系統</h3>
-                    <div class="field">
-                        <span class="field-label">💡 概念</span>
-                        <p class="field-content">透過簡單的屬性媒合演算法，將收容所公開的犬貓個性（如親人度、活動量），與有意認養市民的生活型態（如居住空間、作息習慣）進行交叉配對推薦。</p>
-                    </div>
-                    <div class="field">
-                        <span class="field-label">✨ 價值</span>
-                        <p class="field-content">數據皆為公開資料，系統開發成本極低。能精準提升認養率、降低退養率，展現市府重視生命教育與友善動物的正面形象。</p>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <p>市政微型 AI 應用提案報告 © 2026</p>
-    </footer>
+<footer>
+    <p>市政微型 AI 應用提案報告 © 2026 | 致力於精準、高效、便民的行政服務</p>
+</footer>
 
 </body>
 </html>
