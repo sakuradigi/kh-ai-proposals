@@ -1,0 +1,409 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.6">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="zh-TW"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;市政微型 AI 應用提案報告：低成本與高效能的雙軌轉型&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* CSS 變數定義，方便未來一鍵更換市府主視覺色彩 */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>:root {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>--primary-color: #0056b3;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>--secondary-color: #e6f0fa;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>--accent-color: #e67e22;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>--text-dark: #2c3e50;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>--text-muted: #5a6c7d;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>--bg-light: #f8f9fa;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>--border-radius: 8px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>--shadow: 0 4px 6px rgba(0,0,0,0.05);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>--transition: all 0.3s ease;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* 基礎全域樣式 */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>* {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>box-sizing: border-box;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 0;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>body {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Microsoft JhengHei", sans-serif;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>line-height: 1.7;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: var(--text-dark);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: var(--bg-light);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 0;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* 頂部橫幅 */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>header {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: linear-gradient(135deg, var(--primary-color), #003673);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: white;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 3rem 1.5rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.header-container {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>max-width: 1000px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin: 0 auto;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>header h1 {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 2rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 700;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 1rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>letter-spacing: 0.5px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>header p {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 1.1rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>opacity: 0.9;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>max-width: 700px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin: 0 auto;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* 主內文區塊 */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>main {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>max-width: 1000px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin: 2rem auto;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 0 1.5rem;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* 核心目標區塊 */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.core-strategy {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: white;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-left: 5px solid var(--accent-color);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 1.5rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: var(--border-radius);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: var(--shadow);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 3rem;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.core-strategy h2 {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 1.3rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: var(--accent-color);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 0.5rem;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* 分類大標 */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.section-title {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 1.6rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: var(--primary-color);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin: 2.5rem 0 1.5rem 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding-bottom: 0.5rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-bottom: 2px solid var(--secondary-color);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* 卡片式格狀佈局 (RWD 核心) */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.grid-container {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: grid;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>grid-template-columns: repeat(2, 1fr); /* 電腦端預設雙欄 */</p>
+<p class="p1"><span class="Apple-converted-space">            </span>gap: 1.5rem;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* 單一提案卡片 */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.proposal-card {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: white;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: var(--border-radius);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 1.5rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: var(--shadow);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: 1px solid rgba(0,0,0,0.03);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: var(--transition);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.proposal-card:hover {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transform: translateY(-3px);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 8px 15px rgba(0,0,0,0.08);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.proposal-card h3 {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 1.15rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: var(--primary-color);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 1rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>align-items: flex-start;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.proposal-card h3 .number {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: var(--secondary-color);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: var(--primary-color);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 50%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 26px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 26px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: inline-flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>justify-content: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 0.85rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-right: 0.6rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>flex-shrink: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: bold;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* 概念與價值欄位編排 */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.field {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 0.8rem;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.field:last-child {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 0;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.field-label {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: bold;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 0.9rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: var(--text-dark);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: block;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 0.2rem;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.field-content {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 0.95rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: var(--text-muted);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-align: justify;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* 突出標籤 */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.badge {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #fff3cd;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #856404;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 0.75rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 0.1rem 0.4rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 4px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-left: 0.5rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: normal;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* 頁尾 */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>footer {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 3rem 1.5rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: var(--text-muted);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 0.9rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-top: 1px solid var(--secondary-color);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-top: 4rem;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* ==========================================================================</p>
+<p class="p1"><span class="Apple-converted-space">           </span>RWD 媒體查詢 (Media Queries)</p>
+<p class="p1"><span class="Apple-converted-space">           </span>========================================================================== */</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* 當螢幕寬度小於 850px 時（如平板、大螢幕手機），自動切換為單欄佈局 */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>@media (max-width: 850px) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>.grid-container {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>grid-template-columns: 1fr;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>header h1 {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>font-size: 1.6rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>.section-title {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>font-size: 1.4rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* 當螢幕寬度小於 480px 時（極端小手機優化） */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>@media (max-width: 480px) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>header {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>padding: 2rem 1rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>header h1 {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>font-size: 1.4rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>main {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>margin: 1rem auto;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>padding: 0 1rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>.proposal-card {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>padding: 1.2rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;header&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="header-container"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h1&gt;市政微型 AI 應用提案報告&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;低成本與高效能的雙軌轉型策略&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/header&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;main&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- 提案核心目標 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;section class="core-strategy"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2&gt;提案核心目標&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="field-content" style="color: var(--text-dark);"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>避開重型基礎建設與高昂預算（如數位孿生），運用現有成熟的開源 AI、RAG（檢索增強生成）與 API 技術。一方面透過「公版工具、局部微調」釋放內部行政量能，解決基層複製範本、交接斷層的痛點；另一方面從優化既有服務的 UX 與介面切入，以極低成本讓市民對「智慧城市」產生實質有感的施政體驗。</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- 第一部分 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;section&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2 class="section-title"&gt;第一部分：內部行政優化與賦能（降低行政摩擦力）&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="grid-container"&gt;</p>
+<p class="p2"><span class="Apple-converted-space">                </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- 項目 1 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="proposal-card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h3&gt;&lt;span class="number"&gt;1&lt;/span&gt;內網專屬「市政圖卡 AI 產生器」&lt;span class="badge"&gt;整合高雄熊訓練&lt;/span&gt;&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="field"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="field-label"&gt;💡 概念&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="field-content"&gt;於內網部署 AI 製圖工具（設定限流管控成本），底層綁定市府視覺規範與官方吉祥物「高雄熊（KAOBear）」的影像權重訓練。承辦人輸入核心宣導文字，系統即可自動排版，產出帶有正確高雄熊視覺、且符合公版配色的高品質社群圖卡。&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="field"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="field-label"&gt;✨ 價值&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="field-content"&gt;解決基層單位缺乏專職美編的痛點，在確保視覺一致性與政府形象的前提下，提升市政宣傳的吸睛度。&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- 項目 2 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="proposal-card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h3&gt;&lt;span class="number"&gt;2&lt;/span&gt;政府採購標案智慧助理&lt;span class="badge"&gt;RAG 規格生成 + 防呆&lt;/span&gt;&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="field"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="field-label"&gt;💡 概念&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="field-content"&gt;改變公務員「複製舊範本、盲目貼上再逐字修改」的低效模式。由資訊單位開發公版 RAG 工具，匯入政府採購法、標準規格書，再針對各單位常辦業務（工程、勞務、財物）進行局部微調。系統可引導規格化撰寫，並在送件前自動檢核邏輯衝突。&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="field"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="field-label"&gt;✨ 價值&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="field-content"&gt;透過「公版架構、局部微調」大幅提升採購公文撰寫效率，從源頭降低流標率，並顯著減少主計、法制單位的退件率。&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- 項目 3 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="proposal-card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h3&gt;&lt;span class="number"&gt;3&lt;/span&gt;「公務行政知識庫」AI 導航與業師系統&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="field"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="field-label"&gt;💡 概念&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="field-content"&gt;將內部封閉知識庫轉化為「AI 線上業師」。全面匯入市府現行行政規則、請款流程、人事表單，並將各業務單位的「歷史交接資料、常見問答（FAQ）」結構化建檔。同仁遇到疑難雜訊時，可直接透過自然語言對話獲取標準作業流程與歷年交接脈絡。&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="field"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="field-label"&gt;✨ 價值&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="field-content"&gt;破除機關因人員頻繁流動造成的「交接斷層」，以數位業師化解新人入門門檻，大幅減少資深同仁被重複詢問的時間成本。&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- 項目 4 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="proposal-card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h3&gt;&lt;span class="number"&gt;4&lt;/span&gt;衛星圖 AI 視覺分析：人行道戰略地圖&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="field"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="field-label"&gt;💡 概念&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="field-content"&gt;運用電腦視覺軟體分析既有高解析度衛星圖，精準找出學校、大眾運輸站點周邊的「實體人行道斷點」或固定障礙物佔用熱區。&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="field"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="field-label"&gt;✨ 價值&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="field-content"&gt;資料來源為公開衛星圖，完全無涉隱私。提供客觀數據輔助市府主動規劃路平或人行道標線工程，不需龐大硬體花費。&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- 項目 5 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="proposal-card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h3&gt;&lt;span class="number"&gt;5&lt;/span&gt;市政公開資料（Open Data）自動質檢員&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="field"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="field-label"&gt;💡 概念&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="field-content"&gt;資訊中心或各局處在上傳 Open Data（CSV/JSON）前，透過 AI 驗證腳本自動檢查欄位是否錯位、有無格式亂碼或空值，並給予修正提示。&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="field"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="field-label"&gt;✨ 價值&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="field-content"&gt;確保市府開放資料的基礎品質，避免外部民間開發者或市民下載後因資料錯誤而產生的抱怨與行政往返。&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- 第二部分 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;section&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2 class="section-title"&gt;第二部分：市民服務與體驗升級（優化有感接觸點）&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="grid-container"&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- 項目 6 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="proposal-card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h3&gt;&lt;span class="number"&gt;6&lt;/span&gt;市政公告「RWD 網頁與白話文」QRCode 轉譯器&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="field"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="field-label"&gt;💡 概念&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="field-content"&gt;翻轉傳統將生硬 PDF 公告直接丟上網的做法。在未來的公文與公告（施工、停水等）PDF 角落，系統自動生成一個動態 QRCode。市民掃描後會直接進入一個具備 RWD 響應式、適合手機與平板閱讀的白話說明網頁，提供極簡條列重點與行動指引。&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="field"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="field-label"&gt;✨ 價值&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="field-content"&gt;真正弭平市民與政府間的資訊隔閡，優化跨載具的使用者體驗（UX），從源頭降低市民因看不懂公告而產生的焦慮與投訴。&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- 項目 7 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="proposal-card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h3&gt;&lt;span class="number"&gt;7&lt;/span&gt;市政廳 / 區公所「AI 語音大螢幕與網站多語客服」&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="field"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="field-label"&gt;💡 概念&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="field-content"&gt;將高度在地化的語音辨識與自然語言理解模型（精準支援台語、客語與國語口語）整合至實體服務機台、臨櫃大螢幕及官網。民眾不需在複雜網頁選單迷路，只需「用說的」表達訴求，系統即時理解並以語音與動態螢幕導航申辦資訊。&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="field"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="field-label"&gt;✨ 價值&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="field-content"&gt;極大化發揮 AI 的包容性，徹底弭平高齡長者與數位弱勢族的科技落差，提供即時、親切且無摩擦力的第一線臨櫃門面體驗。&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- 項目 8 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="proposal-card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h3&gt;&lt;span class="number"&gt;8&lt;/span&gt;「高雄智慧停車網」UX 改良與快速媒合介面&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="field"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="field-label"&gt;💡 概念&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="field-content"&gt;高雄現已有智慧停車柱與路邊開單數據等豐厚基礎，本項目不增加硬體成本，僅透過 AI 數據輕量整合，微調優化平台既有介面。在保障「提示資料有數分鐘時間落差」的預防警語下，提供駕駛人一鍵導航、即時空位預測的流暢 UI/UX 介面。&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="field"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="field-label"&gt;✨ 價值&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="field-content"&gt;活化既有數據資產，以極低成本微調老舊介面，大幅減少市區車流繞行，並直接將智慧城市形象深植於市民的日常通勤中。&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- 項目 9 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="proposal-card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h3&gt;&lt;span class="number"&gt;9&lt;/span&gt;市民場館「人流熱區與最佳時段」建議&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="field"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="field-label"&gt;💡 概念&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="field-content"&gt;利用各公立場館與運動中心的歷史進出場數據與即時閘門資訊分析擁擠程度，主動在網站或官方 APP 提示市民避開高峰期。&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="field"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="field-label"&gt;✨ 價值&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="field-content"&gt;協助市民有效規劃運動與休閒時間，達成公共設施的人流分流效果，大幅提升市民使用公共空間的舒適度。&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- 項目 10 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="proposal-card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h3&gt;&lt;span class="number"&gt;10&lt;/span&gt;流浪動物認養「個性配對」系統&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="field"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="field-label"&gt;💡 概念&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="field-content"&gt;透過簡單的屬性媒合演算法，將收容所公開的犬貓個性（如親人度、活動量），與有意認養市民的生活型態（如居住空間、作息習慣）進行交叉配對推薦。&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="field"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="field-label"&gt;✨ 價值&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="field-content"&gt;數據皆為公開資料，系統開發成本極低。能精準提升認養率、降低退養率，展現市府重視生命教育與友善動物的正面形象。&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/main&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;footer&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;市政微型 AI 應用提案報告 © 2026&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/footer&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
