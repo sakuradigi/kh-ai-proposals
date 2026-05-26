@@ -6,14 +6,15 @@
     <title>市政微型 AI 應用提案報告：低成本與高效能的雙軌轉型</title>
     <style>
         :root {
-            --primary-color: #004098;
-            --secondary-color: #eef4fb;
-            --accent-color: #1597e5;
-            --text-dark: #1a2b3c;
-            --text-muted: #54667a;
-            --bg-light: #f4f7fa;
+            /* 主配色改為深藍綠色系 (Deep Teal) */
+            --primary-color: #005b5c;
+            --secondary-color: #e0f2f1;
+            --accent-color: #009688;
+            --text-dark: #142121;
+            --text-muted: #526363;
+            --bg-light: #f2f6f6;
             --border-radius: 12px;
-            --shadow: 0 10px 30px rgba(0,0,0,0.08);
+            --shadow: 0 10px 30px rgba(0,0,0,0.06);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -22,13 +23,25 @@
             line-height: 1.8;
             color: var(--text-dark);
             background-color: var(--bg-light);
+            /* 全域基礎字級放大 1 級 */
+            font-size: 110%; 
         }
 
         header {
-            background: linear-gradient(135deg, #002b5b 0%, #004098 100%);
+            background: linear-gradient(135deg, #003b3c 0%, #005b5c 100%);
             color: white;
-            padding: 4rem 1.5rem;
+            padding: 4.5rem 1.5rem;
             text-align: center;
+        }
+
+        header h1 {
+            /* 字級放大 */
+            font-size: 2.4rem; 
+        }
+
+        header p {
+            /* 字級放大 */
+            font-size: 1.2rem; 
         }
 
         .container { max-width: 1050px; margin: 0 auto; padding: 0 1.5rem; }
@@ -42,14 +55,20 @@
             border-top: 6px solid var(--accent-color);
         }
 
+        .core-goal p {
+            /* 字級放大 */
+            font-size: 1.2rem; 
+        }
+
         .section-title {
-            font-size: 1.8rem;
+            /* 字級放大 */
+            font-size: 2rem; 
             color: var(--primary-color);
-            margin: 4rem 0 2rem;
+            margin: 4.5rem 0 2rem;
             display: flex;
             align-items: center;
-            border-bottom: 2px solid #d0dae5;
-            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #cbdad9;
+            padding-bottom: 0.6rem;
         }
 
         /* ==========================================
@@ -59,12 +78,12 @@
         .grid { 
             display: flex;
             flex-direction: column;
-            gap: 1.5rem; 
+            gap: 1.8rem; 
         }
 
         .card {
             background: white;
-            padding: 2rem;
+            padding: 2.2rem;
             border-radius: var(--border-radius);
             box-shadow: var(--shadow);
             display: flex;
@@ -77,30 +96,38 @@
             .grid { 
                 display: grid;
                 grid-template-columns: repeat(2, 1fr);
-                gap: 1.5rem;
+                gap: 1.8rem;
             }
             .card.span-2 {
                 grid-column: span 2;
             }
         }
 
-        .card h3 { color: var(--primary-color); margin-bottom: 1.2rem; font-size: 1.25rem; display: flex; align-items: center; }
-        .card h3 .num { background: var(--secondary-color); width: 30px; height: 30px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; margin-right: 0.8rem; font-size: 0.9rem; font-weight: bold; }
+        /* 字級放大微調 */
+        .card h3 { color: var(--primary-color); margin-bottom: 1.3rem; font-size: 1.4rem; display: flex; align-items: center; }
+        .card h3 .num { background: var(--secondary-color); width: 34px; height: 34px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; margin-right: 0.8rem; font-size: 1rem; font-weight: bold; flex-shrink: 0; }
 
-        .tag { background: #e1f5fe; color: #01579b; font-size: 0.75rem; padding: 2px 8px; border-radius: 4px; margin-left: 8px; font-weight: normal; }
-        .label { font-weight: bold; font-size: 0.9rem; color: #7f8c8d; text-transform: uppercase; margin-top: 1rem; display: block; }
-        .content { font-size: 1rem; color: var(--text-dark); margin-top: 0.3rem; text-align: justify; }
+        /* 標籤與提示文字級放大 */
+        .tag { background: #e0f2f1; color: #004d40; font-size: 0.85rem; padding: 3px 10px; border-radius: 4px; margin-left: 8px; font-weight: normal; }
+        .label { font-weight: bold; font-size: 1rem; color: #617373; text-transform: uppercase; margin-top: 1.2rem; display: block; }
+        
+        /* 內文字級放大 1-2 級 */
+        .content { font-size: 1.15rem; color: var(--text-dark); margin-top: 0.4rem; text-align: justify; }
 
-        .flow-box { background: #f8f9fa; border: 1px dashed #cbd5e0; padding: 1.2rem; border-radius: 8px; margin-top: 1rem; }
-        .flow-old { color: #e53e3e; font-size: 0.9rem; margin-bottom: 0.8rem; }
-        .flow-new { color: #38a169; font-size: 0.95rem; font-weight: bold; }
+        /* 流程圖區塊微調 */
+        .flow-box { background: #f4f7f7; border: 1px dashed #b2dfdb; padding: 1.4rem; border-radius: 8px; margin-top: 1.2rem; }
+        .flow-old { color: #c62828; font-size: 1.05rem; margin-bottom: 1rem; }
+        .flow-new { color: #2e7d32; font-size: 1.1rem; font-weight: bold; }
 
-        footer { text-align: center; padding: 4rem 0; color: var(--text-muted); font-size: 0.9rem; }
+        footer { text-align: center; padding: 4rem 0; color: var(--text-muted); font-size: 1rem; }
 
         @media (max-width: 768px) {
-            header h1 { font-size: 1.6rem; }
-            .section-title { font-size: 1.5rem; }
-            .card { padding: 1.5rem; }
+            header h1 { font-size: 1.8rem; }
+            .section-title { font-size: 1.6rem; }
+            .card { padding: 1.6rem; }
+            /* 手機端微調字級，確保閱讀流暢不突兀 */
+            body { font-size: 105%; }
+            .content { font-size: 1.1rem; }
         }
     </style>
 </head>
@@ -116,7 +143,7 @@
 <main class="container">
     <section class="core-goal">
         <h2 style="color: var(--primary-color); margin-bottom: 1rem;">核心策略目標</h2>
-        <p>避開大型預算之重型工程，以「低成本、高施政感、微調現有基礎」為核心，運用 Gemini 代理人與 RAG 技術，針對行政摩擦力與市民接觸體驗進行雙軌優化。透過公版工具與局部微調，實現行政自動化並弭平市民資訊隔閡。</p>
+        <p>避開大型預算之重型工程，以「低成本、高施政感、微調現有基礎」為核心，運用 AI Agent 與 RAG 技術，針對行政摩擦力與市民接觸體驗進行雙軌優化。透過公版工具與局部微調，實現行政自動化並弭平市民資訊隔閡。</p>
     </section>
 
     <h2 class="section-title">第一部分：內部行政優化（降低行政摩擦力）</h2>
@@ -125,10 +152,10 @@
             <h3><span class="num">1</span>民眾陳情與意見回覆流程<span class="tag">自動分類與草擬</span></h3>
             <div class="flow-box">
                 <div class="flow-old"><strong>舊流程：</strong>人工閱讀 → 判斷局處 → 手動查閱舊案 → 撰寫覆函 → 陳核 (效率受人力與經驗限制)。</div>
-                <div class="flow-new"><strong>AI 新流程：</strong>Gemini 自動解析語意進行「自動精準分文」 → AI 同步調閱內部資料庫 (RAG)「自動草擬覆函」 → 承辦人審核微調。</div>
+                <div class="flow-new"><strong>AI 新流程：</strong>AI 自動解析語意進行「自動精準分文」 → AI 同步調閱內部資料庫 (RAG)「自動草擬覆函」 → 承辦人審核微調。</div>
             </div>
             <span class="label">💡 優化機制</span>
-            <p class="content">落實「Human-in-the-Loop」機制，AI 負擔 90% 的分類與初步撰寫工作，公務員則保有最終裁決權與法律責任，達成效率與嚴謹度的平衡。</p>
+            <p class="content">從宏觀到局處端落實「Human-in-the-Loop」機制，AI 負擔 90% 的分類與初步撰寫工作，公務員則保有最終裁決權與法律責任，達成效率與嚴謹度的平衡。</p>
         </div>
 
         <div class="card">
@@ -158,9 +185,9 @@
         <div class="card">
             <h3><span class="num">5</span>人行道戰略地圖<span class="tag">衛星影像分析</span></h3>
             <span class="label">💡 概念</span>
-            <p class="content">利用視覺 AI 分析高解析度衛星圖，精準找出學校、站點周邊的人行道斷點。</p>
+            <p class="content">改善行人地獄污名，改善被動陳情才改善，主動運動視覺 AI 分析高解析度衛星圖，精準找出捷運、學校、公車站等周邊的人行道斷點。</p>
             <span class="label">✨ 價值</span>
-            <p class="content">不需龐大硬體建置，以現有軟體分析達成精準派工、主動治理。</p>
+            <p class="content">不需龐大硬體建置，以現有軟體分析達成精準派工、主動治理。（偏智慧交通形象營造，畢竟改善關鍵還是硬體建置）</p>
         </div>
     </div>
 
@@ -183,11 +210,11 @@
         </div>
 
         <div class="card">
-            <h3><span class="num">8</span>AI 語音大螢幕與網站導航</h3>
+            <h3><span class="num">8</span>AI (語音)螢幕導航</h3>
             <span class="label">💡 概念</span>
-            <p class="content">整合台、客、國語辨識。民眾在區公所或網站「用說的」即能導航申辦流程。</p>
+            <p class="content">提供民眾於區公所或行政公署洽公時，透過AI智慧引導，快速導航申辦流程與應前往局處、樓層、位置。</p>
             <span class="label">✨ 價值</span>
-            <p class="content">打造無摩擦力的智慧門面，讓高齡長者也能輕鬆享受數位服務。</p>
+            <p class="content">打造無摩擦力的智慧門面，讓全齡洽公人員輕鬆享受數位服務。</p>
         </div>
 
         <div class="card">
