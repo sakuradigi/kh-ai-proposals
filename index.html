@@ -59,6 +59,7 @@
             padding-bottom: 0.6rem;
         }
 
+        /* RWD 核心彈性排版（行動優先，預設單欄垂直排列） */
         .grid { 
             display: flex;
             flex-direction: column;
@@ -75,6 +76,7 @@
             width: 100%;
         }
 
+        /* 電腦端雙欄排版設定 */
         @media (min-width: 769px) {
             .grid { 
                 display: grid;
@@ -88,8 +90,6 @@
 
         .card h3 { color: var(--primary-color); margin-bottom: 1.3rem; font-size: 1.4rem; display: flex; align-items: center; }
         .card h3 .num { background: var(--secondary-color); width: 34px; height: 34px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; margin-right: 0.6rem; font-size: 1rem; font-weight: bold; flex-shrink: 0; }
-        
-        /* 新增：項目示意標誌的間距設定 */
         .card h3 .icon { margin-right: 0.6rem; font-size: 1.4rem; display: inline-flex; align-items: center; }
 
         .tag { background: #e0f2f1; color: #004d40; font-size: 0.85rem; padding: 3px 10px; border-radius: 4px; margin-left: 8px; font-weight: normal; }
@@ -100,7 +100,19 @@
         .flow-old { color: #c62828; font-size: 1.05rem; margin-bottom: 1rem; }
         .flow-new { color: #2e7d32; font-size: 1.1rem; font-weight: bold; }
 
-        footer { text-align: center; padding: 4rem 0; color: var(--text-muted); font-size: 1rem; }
+        /* 實務反思專屬樣式 */
+        .reflection-box {
+            background: #ffffff;
+            padding: 2.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin: 4rem 0;
+            border-left: 6px solid var(--primary-color);
+        }
+        .reflection-box p { font-size: 1.15rem; color: var(--text-dark); text-align: justify; margin-bottom: 1rem; }
+        .reflection-box p:last-child { margin-bottom: 0; }
+
+        footer { text-align: center; padding: 4rem 0; color: var(--text-muted); font-size: 1rem; border-top: 1px solid #cbdad9; }
 
         @media (max-width: 768px) {
             header h1 { font-size: 1.8rem; }
@@ -108,6 +120,7 @@
             .card { padding: 1.6rem; }
             body { font-size: 105%; }
             .content { font-size: 1.1rem; }
+            .reflection-box { padding: 1.8rem; }
         }
     </style>
 </head>
@@ -123,7 +136,7 @@
 <main class="container">
     <section class="core-goal">
         <h2 style="color: var(--primary-color); margin-bottom: 1rem;">核心策略目標</h2>
-        <p>避開大型預算之重型工程，以「低成本、高度有感、微調現有基礎」為核心，運用 LLM、 AI Agent 與 RAG 技術，針對行政摩擦力與市民UX進行雙軌優化。透過公版工具與局部微調，實現行政自動化並弭平市民資訊隔閡。</p>
+        <p>避開大型預算之重型工程，以「低成本、高度有感、微調現有基礎」為核心，運用 LLM、 AI Agent 與 RAG 技術，针对行政摩擦力與市民UX進行雙軌優化。透過公版工具與局部微調，實現行政自動化並弭平市民資訊隔閡。</p>
     </section>
 
     <h2 class="section-title">第一部分：內部行政優化（降低行政摩擦力）</h2>
@@ -174,6 +187,7 @@
             <span class="label">✨ 價值</span>
             <p class="content">不需龐大硬體建置，以現有街景數據分析達成精準派工、主動治理，大幅提升辨識精準度。（偏智慧交通形象營造，畢竟改善關鍵還是硬體建置）</p>
         </div>
+    </div> <!-- 第一部分容器正確閉合 -->
 
     <h2 class="section-title">第二部分：市民服務提升（優化有感接觸點）</h2>
     <div class="grid">
@@ -205,18 +219,28 @@
         </div>
 
         <!-- 項目 9 -->
-        <div class="card">
+        <div class="card span-2">
             <h3><span class="num">9</span><span class="icon">🤝</span>社會局「福利專家諮詢」AI 智慧引導與表單預填系統</h3>
             <span class="label">💡 概念</span>
             <p class="content">改良現行系統。免除民眾手動查閱國稅局定稅率、土地公告現值等繁瑣障礙，改由 AI 進行白話問答引導，精準試算可能符合的福利津貼。確認意願後，AI 直接自動生成對應的應備申請書表，市民下載列印即可完成遞件準備。</p>
             <span class="label">✨ 價值</span>
             <p class="content">縮短市民資訊落差與申請壁壘。系統前置顯著法律免責宣告，最終審核仍回歸承辦人實體調閱財稅資料把關，在確保行政嚴謹度的同時，大幅降低民眾臨櫃盲目詢問與錯填的摩擦力。</p>
         </div>
+    </div> <!-- 第二部分容器正確閉合 -->
 
+    <!-- 新增：綜整潤飾後的「結語與實務反思」專區 -->
+    <section class="reflection-box">
+        <h2 style="color: var(--primary-color); margin-bottom: 1.2rem; font-size: 1.5rem; display: flex; align-items: center;">
+            <span style="margin-right: 0.6rem;">💡</span> 結語與實務反思：回歸市民體驗的本質
+        </h2>
+        <p><strong>政策前瞻性與實務包容：</strong>本報告所提之各項應用，旨在從地方政府的角度進行創新探索。由於未能全盤涉入市府現行各施政計畫的具體推動細節，上述部分項目若已於市府既有的「CityGPT」或其他智慧城市建置計畫中著手進行，尚祈多加包涵與指正。</p>
+        <p><strong>以 UX 為核心的轉型思維：</strong>現階段奢談全面性的 AI 深度治理或許仍屬尚早。在技術落地之前，更核心、也更具迫切性的，其實是**各項市政公共服務在第一線的「UX（使用者體驗）」需要被大幅強化**。智慧施政不應只是新興技術的堆疊，而是要真正看見市民辦理時的摩擦力，並從現有基礎進行微調與優化。</p>
+        <p><strong>前瞻佈局垂直領域 Agent：</strong>不可否認，大語言模型（LLM）的「幻覺問題」與技術成熟度在當前確實仍有成長與修正的空間；然而，在邁向下一代智慧政府的進程中，**搶先開始「訓練、培養」屬於政府特定垂直施政領域的 AI Agent（智慧代理人），無疑已是各城市在數位轉型浪潮中的兵家必爭之地**。唯有提前佈局，方能於未來實現精準、有感且便民的行政新常態。</p>
+    </section>
 </main>
 
 <footer>
-    <p>市政微型 AI 應用提案報告 © 2026 </p>
+    <p>市政微型 AI 應用提案報告 © 2026 | 致力於精準、高效、便民的行政服務</p>
 </footer>
 
 </body>
