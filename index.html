@@ -6,7 +6,7 @@
     <title>市政微型 AI 應用提案報告：低成本與高效能的雙軌轉型</title>
     <style>
         :root {
-            /* 主配色改為深藍綠色系 (Deep Teal) */
+            /* 主配色：深藍綠色系 (Deep Teal) */
             --primary-color: #005b5c;
             --secondary-color: #e0f2f1;
             --accent-color: #009688;
@@ -23,7 +23,6 @@
             line-height: 1.8;
             color: var(--text-dark);
             background-color: var(--bg-light);
-            /* 全域基礎字級放大 1 級 */
             font-size: 110%; 
         }
 
@@ -60,10 +59,6 @@
             padding-bottom: 0.6rem;
         }
 
-        /* ==========================================
-           RWD 核心排版修正 (採彈性佈局)
-           ========================================== */
-        /* 預設（包含手機等行動裝置）：一律垂直單欄排列 */
         .grid { 
             display: flex;
             flex-direction: column;
@@ -80,7 +75,6 @@
             width: 100%;
         }
 
-        /* 當螢幕寬度大於 768px 時（電腦或大平板），才自動切換為雙欄並排 */
         @media (min-width: 769px) {
             .grid { 
                 display: grid;
@@ -92,18 +86,16 @@
             }
         }
 
-        /* 字級放大微調 */
         .card h3 { color: var(--primary-color); margin-bottom: 1.3rem; font-size: 1.4rem; display: flex; align-items: center; }
-        .card h3 .num { background: var(--secondary-color); width: 34px; height: 34px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; margin-right: 0.8rem; font-size: 1rem; font-weight: bold; flex-shrink: 0; }
+        .card h3 .num { background: var(--secondary-color); width: 34px; height: 34px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; margin-right: 0.6rem; font-size: 1rem; font-weight: bold; flex-shrink: 0; }
+        
+        /* 新增：項目示意標誌的間距設定 */
+        .card h3 .icon { margin-right: 0.6rem; font-size: 1.4rem; display: inline-flex; align-items: center; }
 
-        /* 標籤與提示文字級放大 */
         .tag { background: #e0f2f1; color: #004d40; font-size: 0.85rem; padding: 3px 10px; border-radius: 4px; margin-left: 8px; font-weight: normal; }
         .label { font-weight: bold; font-size: 1rem; color: #617373; text-transform: uppercase; margin-top: 1.2rem; display: block; }
-        
-        /* 內文字級放大 1-2 級 */
         .content { font-size: 1.15rem; color: var(--text-dark); margin-top: 0.4rem; text-align: justify; }
 
-        /* 流程圖與提示區塊微調 */
         .flow-box { background: #f4f7f7; border: 1px dashed #b2dfdb; padding: 1.4rem; border-radius: 8px; margin-top: 1.2rem; }
         .flow-old { color: #c62828; font-size: 1.05rem; margin-bottom: 1rem; }
         .flow-new { color: #2e7d32; font-size: 1.1rem; font-weight: bold; }
@@ -136,8 +128,9 @@
 
     <h2 class="section-title">第一部分：內部行政優化（降低行政摩擦力）</h2>
     <div class="grid">
+        <!-- 項目 1 -->
         <div class="card span-2">
-            <h3><span class="num">1</span>民眾陳情與意見回覆流程<span class="tag">自動分類與草擬</span></h3>
+            <h3><span class="num">1</span><span class="icon">📄</span>民眾陳情與意見回覆流程<span class="tag">自動分類與草擬</span></h3>
             <div class="flow-box">
                 <div class="flow-old"><strong>舊流程：</strong>人工閱讀 → 判斷局處 → 手動查閱舊案 → 撰寫覆函 → 陳核 (效率受人力與經驗限制)。</div>
                 <div class="flow-new"><strong>AI 新流程：</strong>AI 自動解析語意進行「自動精準分文」 → AI 同步調閱內部資料庫 (RAG)「自動草擬覆函」 → 承辦人審核微調。</div>
@@ -146,34 +139,38 @@
             <p class="content">從宏觀到局處端落實「Human-in-the-Loop」機制，AI 負擔 90% 的分類與初步撰寫工作，公務員則保有最終裁決權與法律責任，達成效率與嚴謹度的平衡。</p>
         </div>
 
+        <!-- 項目 2 -->
         <div class="card">
-            <h3><span class="num">2</span>市政圖卡 AI 產生器<span class="tag">整合高雄熊主題</span></h3>
+            <h3><span class="num">2</span><span class="icon">🎨</span>市政圖卡 AI 產生器<span class="tag">整合高雄熊主題</span></h3>
             <span class="label">💡 概念</span>
             <p class="content">於內網部署 AI 製圖工具，綁定市府視覺規範與「高雄熊」影像權重訓練。輸入核心文字即可產出高品質、符合品牌形象的宣傳圖。</p>
             <span class="label">✨ 價值</span>
             <p class="content">賦予各單位自主宣傳量能，無需專業美編即可維持市府一致的視覺溝通力。</p>
         </div>
 
+        <!-- 項目 3 -->
         <div class="card">
-            <h3><span class="num">3</span>採購契約「生成與檢核」助理</h3>
+            <h3><span class="num">3</span><span class="icon">⚖️</span>採購契約「生成與檢核」助理</h3>
             <span class="label">💡 概念</span>
             <p class="content">以 RAG 協助規格化撰寫標案。由資訊單位產出公版工具，再針對各局處業務進行細部訓練，輔助規格書生成並自動執行邏輯檢核。</p>
             <span class="label">✨ 價值</span>
             <p class="content">杜絕「複製貼上」舊範本導致的錯誤，大幅提升採購公文撰寫效率並降低流標率。</p>
         </div>
 
+        <!-- 項目 4 -->
         <div class="card">
-            <h3><span class="num">4</span>「公務行政知識庫」AI 業師系統</h3>
+            <h3><span class="num">4</span><span class="icon">📚</span>「公務行政知識庫」AI 業師系統</h3>
             <span class="label">💡 概念</span>
             <p class="content">將各局處歷史交接資料與問答 SOP 結構化，打造數位「業師」。</p>
             <span class="label">✨ 價值</span>
             <p class="content">解決人員輪調、約聘僱異動造成的「交接斷層」，降低新人入門門檻。</p>
         </div>
 
+        <!-- 項目 5 -->
         <div class="card">
-            <h3><span class="num">5</span>人行道戰略地圖<span class="tag">衛星影像分析</span></h3>
+            <h3><span class="num">5</span><span class="icon">🗺️</span>人行道戰略地圖<span class="tag">衛星影像分析</span></h3>
             <span class="label">💡 概念</span>
-            <p class="content">改善行人地獄污名、被動陳情才作為，主動運用視覺 AI 分析高解析度衛星圖，精準找出捷運、學校、公車站等周遭一定範圍的人行道斷點。</p>
+            <p class="content">改善行人地獄污名，改善被動陳情才改善，主動運用視覺 AI 分析高解析度衛星圖，精準找出捷運、學校、公車站等周遭一定範圍的人行道斷點。</p>
             <span class="label">✨ 價值</span>
             <p class="content">不需龐大硬體建置，以現有軟體分析達成精準派工、主動治理。（偏智慧交通形象營造，畢竟改善關鍵還是硬體建置）</p>
         </div>
@@ -181,40 +178,45 @@
 
     <h2 class="section-title">第二部分：市民服務提升（優化有感接觸點）</h2>
     <div class="grid">
+        <!-- 項目 6 -->
         <div class="card span-2">
-            <h3><span class="num">6</span>市政公告「白話文轉譯」QR Code 服務</h3>
+            <h3><span class="num">6</span><span class="icon">📲</span>市政公告「白話文轉譯」QR Code 服務</h3>
             <span class="label">💡 概念</span>
             <p class="content">於實體及 PDF 公告角落加入專屬 QR Code。市民掃描後會跳轉至 AI 生成的「白話說法、RWD 響應式網頁」。無論手機、平板均能清楚閱覽重點指引。</p>
             <span class="label">✨ 價值</span>
             <p class="content">將「官僚文字」轉化為「公民行動」，真正弭平資訊隔閡，優化市民接收市政資訊的體驗。</p>
         </div>
 
+        <!-- 項目 7 -->
         <div class="card">
-            <h3><span class="num">7</span>「高雄智慧停車網」UX 改良專案</h3>
+            <h3><span class="num">7</span><span class="icon">🚗</span>「高雄智慧停車網」UX 改良專案</h3>
             <span class="label">💡 概念</span>
             <p class="content">在現有數據基礎上，優化介面直覺度與數據媒合效率，提供友善的即時停車搜尋介面。</p>
             <span class="label">✨ 價值</span>
             <p class="content">無需新硬體投入，僅需微調優化即可提升市民施政有感度，例如：提供搜尋地址後，主動提供地址範圍 100-200m 內停車空位數，分級顯示，方便駕駛選擇繞行尋找路邊車格或停車場。</p>
         </div>
 
+        <!-- 項目 8 -->
         <div class="card">
-            <h3><span class="num">8</span>臨櫃洽公「手機 AI 預載與表單代填」導航服務</h3>
+            <h3><span class="num">8</span><span class="icon">📱</span>臨櫃洽公「手機 AI 預載與表單代填」導航服務</h3>
             <span class="label">💡 概念</span>
             <p class="content">市民至區公所或行政公署洽公時，可透過實體導航螢幕或告示掃描 QR Code，將申辦流程預載至個人手機。由 AI 依據申辦項目進行白話引導填答，自動代填並完成複雜的申請文件資料，免除民眾現場手寫表單的繁瑣過程。</p>
             <span class="label">✨ 價值</span>
             <p class="content">打破傳統實體櫃檯排隊與文書填寫限制。手機填妥後可直接生成專屬條碼，臨櫃時由承辦人員掃描即可快速匯入系統，打造全齡無摩擦力的智慧臨櫃體驗，大幅縮短民眾辦理與公務員收件的行政時間。</p>
         </div>
 
+        <!-- 項目 9 -->
         <div class="card">
-            <h3><span class="num">9</span>社會局「福利專家諮詢」AI 智慧引導與表單預填系統</h3>
+            <h3><span class="num">9</span><span class="icon">🤝</span>社會局「福利專家諮詢」AI 智慧引導與表單預填系統</h3>
             <span class="label">💡 概念</span>
             <p class="content">改良現行系統。免除民眾手動查閱國稅局定稅率、土地公告現值等繁瑣障礙，改由 AI 進行白話問答引導，精準試算可能符合的福利津貼。確認意願後，AI 直接自動生成對應的應備申請書表，市民下載列印即可完成遞件準備。</p>
             <span class="label">✨ 價值</span>
             <p class="content">縮短市民資訊落差與申請壁壘。系統前置顯著法律免責宣告，最終審核仍回歸承辦人實體調閱財稅資料把關，在確保行政嚴謹度的同時，大幅降低民眾臨櫃盲目詢問與錯填的摩擦力。</p>
         </div>
 
+        <!-- 項目 10 -->
         <div class="card">
-            <h3><span class="num">10</span>身故市民財產繼承「一站式 AI 文書導航與預填系統」</h3>
+            <h3><span class="num">10</span><span class="icon">🔑</span>身故市民財產繼承「一站式 AI 文書導航與預填系統」</h3>
             <span class="label">💡 概念</span>
             <p class="content">針對親人離世後，後代必須跨機構奔波辦理金融遺產結清之痛苦。市民於戶政事務所辦理身故登記時，可透過 QR Code 啟動 AI 繼承助手。民眾只需勾選一站式查詢回復之金融機構名單，AI 將自動整合各家銀行（如郵局、台銀、富邦等）不同的繼承文書格式，轉化為單一整合式答詢介面，並自動產出各行庫對應的預填申請書。</p>
             <span class="label">✨ 價值</span>
